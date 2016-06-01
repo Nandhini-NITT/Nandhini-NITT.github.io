@@ -8,19 +8,24 @@
 		function carousel() {
 		var i;
 		var x = document.getElementsByClassName("slides");
+		var y= document.getElementsByClassName("slides-caption");
 		for (i = 0; i < x.length; i++) {
 			x[i].style.display = "none";  
+			y[i].style.display="none";
 		}
 		myIndex++;
 		if (myIndex > x.length) {myIndex = 1}    
-			x[myIndex-1].style.display = "block";  
-		setTimeout(carousel, 2000); // Change image every 2 seconds
+			{
+			x[myIndex-1].style.display = "block";
+			y[myIndex-1].style.display="block";
+			}
+		setTimeout(carousel, 3000); // Change image every 2 seconds
 		}
 	</script>
 </head>
 <body onload="carousel()">
 
-	<img src="NITT.jpg"><br>
+	<img src="NITT.jpg"><br> 
 	<header>"My name is Nandhini S.I am from chennai.I did my schooling at Chettinad Vidyashram. I love talking with people. My hobby is listening to music.While listening to songs I pay more attention to lyrics more than the tune.
 	I love helping people...." -The same boring introduction I gave in all the PI's  I attended.</header>
 	<br>
@@ -115,13 +120,14 @@
 			<br>
 			<img src="dalai-lama.jpg" id="quote">
 			<br>
+			<p><mark>#Hostel-Life-Rocks</mark></p>
 		</article>
 		</section>
 		<hr>
 		<section id="images">
 			<img class="slides" src="entrance.jpg">
 			<img class="slides" src="lhc.jpg">
-			<img class="slides" src="helicopter.jpg">
+			<img class="slides" src="helicopter.JPG">
 			<img class="slides" src="library.jpg">
 			<img class="slides" src="Lyceum.jpg">
 			<img class="slides" src="octa.jpg">
@@ -133,14 +139,29 @@
 			<img class="slides" src="hospital.JPG">
 			<img class="slides" src="opal-c.jpg">
 		<section>
+		<section id="image-caption">
+			<p class="slides-caption">Entrance</p>
+			<p class="slides-caption">Lecture Hall Complex</p>
+			<p class="slides-caption">MiG-23BN, SM202</p>
+			<p class="slides-caption">Central Library</p>
+			<p class="slides-caption">Lyceum</p>
+			<p class="slides-caption">Comuputer Center(Octa)</p>
+			<p class="slides-caption">Sports complex</p>
+			<p class="slides-caption">Gym</p>
+			<p class="slides-caption">Swimming Pool</p>
+			<p class="slides-caption">Barn Hall</p>
+			<p class="slides-caption">Shopping Complex</p>
+			<p class="slides-caption">Hospital</p>
+			<p class="slides-caption">Opal-C(Girls Hostel)</p>
+		</section>
 	</div>
 		<footer>
 			<p>I would call joining NITT was the <b><u>BEST MISTAKE</u></b> I made</p>
 			<p>(I know what's going on in your mind.I call it a mistake because I didn't even attempt JEE- advance if I have done so I would have created a page titled- "Journey to IIT Bombay")</p>
-			<br><br>
+			<br>
 			<p>#height_of_confidence</p>
-			<br><br>
-			<p>Overconfidence is both my strength and my weakness</p>
+			<br>
+			<p><I>Overconfidence is both my strength and my weakness</I></p>
 		</footer>	
 
 </body>
