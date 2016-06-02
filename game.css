@@ -1,18 +1,32 @@
 html
-{font-size:15px;
+{font-size:10px;
 }
 @media screen and (min-width: 769px)
 {	
 	html
 	{
-	font-size:20px;
+	font-size:17px;
+	}
+	#timer-box
+	{
+	margin-left:2rem;
+	}
+}
+@media screen and (min-width: 2559px)
+{
+	html
+	{
+	font-size:35px;
+	}
+	button
+	{
+	font-size:1rem;
 	}
 }
 .wrapper
 {
-margin: 0;
-   
-    position: absolute;
+	margin: 0 auto;
+	position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
@@ -48,7 +62,6 @@ td
 {
   width: 2em; 
 height:2rem;
-
 color:white;
 font-weight:bold;
 font-size:1.4rem !important;
@@ -74,4 +87,28 @@ a:visited
 {
 color:blue;
 font-size:1.3rem !important;
+}
+#timer-box
+{	
+	font-size: 1.4rem !important;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-weight: bold;
+    text-shadow: none;
+	float:right;
+	
+	
+}
+
+
+#timer-box li { 
+position:relative;
+display: -webkit-inline-box; 
+padding:1.5rem;
+border:solid;
+border-width:0.2rem;
+border-color:white;
+color:white;
+border-radius:3rem;
+background-color:transparent;
+
 }

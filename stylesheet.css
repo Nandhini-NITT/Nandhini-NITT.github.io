@@ -78,5 +78,11 @@ nav {
     background-color: white;
 	text-align:center;
 }
-
+#image-caption
+{
+margin:0.2rem;
+padding:0.2rem;
+font-weight:bold;
+font-size:1rem;
+}
 

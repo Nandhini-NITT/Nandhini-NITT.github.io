@@ -7,6 +7,15 @@
 </head>
 <body>
 		<h1>MEMORY GAME</h1>
+		<center>
+		<div id="button-box">
+		<button id="pause" onClick="pause_timer()">Pause</button>
+		<button id="reset" onClick="replay()">Reset </button>
+		<button id="play" onClick="main_timer()">Play</button>
+		</div>
+		</center>
+		<br>
+		<a href="journey-to-nitt.html">Back to Main page</a>
 		<br>
 		<div class="wrapper">
 			<table id="game-board" cellspacing="0" cellpadding="0">
@@ -37,7 +46,14 @@
 			</table>
 		</div>
 		<br>
-	<a href="journey-to-nitt.html">Back to Main page</a>
+		<div id="timer-box">
+		<ul>
+			<li id="min">Minutes </li>
+			<li id="sec">Seconds</li>
+		</ul>
+		</div>
+		
+		
 	</body>
 	</html>
 				
