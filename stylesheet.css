@@ -54,3 +54,29 @@ font-size:1.2rem !important;
 max-width: 100%;
 min-width: 100%;
 }
+a:link
+{
+
+color:red;
+font-size:1.3rem !important;
+}
+a:hover
+{
+text-decoration:underline;
+font-size:1.3rem !important;
+}
+a:visited
+{
+color:blue;
+font-size:1.3rem !important;
+}
+
+nav {
+    border: 1px solid black;
+    font-size: 15px;
+    padding: 6px;
+    background-color: white;
+	text-align:center;
+}
+
+
