@@ -1,7 +1,8 @@
 html
-{font-size:10px;
+{
+font-size:10px;
 }
-@media screen and (min-width: 769px)
+@media screen and (min-width: 1025pxpx) 
 {	
 	html
 	{
@@ -12,25 +13,67 @@ html
 	margin-left:2rem;
 	}
 }
-@media screen and (min-width: 2559px)
+@media screen and (min-width: 1439px) 
 {
 	html
 	{
-	font-size:35px;
+	font-size:20px;
 	}
 	button
 	{
 	font-size:1rem;
 	}
 }
-.wrapper
+@media screen and (max-width: 319px)
+{
+	html
+	{
+	font-size:8px;
+	}
+}
+@media screen and (max-height: 706px) and min-width: 2558px
+{
+	html
+	{
+	font-size:20px;
+	}
+	
+}
+::-webkit-input-placeholder {
+   color: red;
+   font-weight:bold;
+   font-size:1rem;
+}
+#button-box
+{
+float:right;
+position:fixed;
+bottom:8rem;
+margin-left:0;
+}
+input
+{
+	margin:1rem;
+	height:2rem;
+	font-size:1rem;
+}
+#wrapper
 {
 	margin: 0 auto;
 	position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
+}
+#get-values
+{
+margin: 0 auto;
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
 }
 [id*="col-"]
 {
@@ -72,6 +115,7 @@ color:white;
 font-weight:bold;
 text-align:center;
 }
+
 a:link
 {
 background-color:white;
@@ -94,21 +138,33 @@ font-size:1.3rem !important;
     font-family: Tahoma, Geneva, sans-serif;
     font-weight: bold;
     text-shadow: none;
-	float:right;
-	
-	
+	float:left;
+	position:fixed;
+	bottom:0;
+	margin:0;
 }
 
 
 #timer-box li { 
 position:relative;
 display: -webkit-inline-box; 
-padding:1.5rem;
+padding:1rem;
 border:solid;
 border-width:0.2rem;
 border-color:white;
 color:white;
 border-radius:3rem;
 background-color:transparent;
-
+margin:0;
+}
+button
+{
+background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 1rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1rem;
 }
