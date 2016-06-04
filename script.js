@@ -25,29 +25,44 @@ function unhide (elements) {
     elements[index].style.display = 'inline';
   }
 }
+function result_display()
+{
+	hide(document.getElementById("wrapper"));
+	hide(document.getElementById("timer-box"));
+	hide(document.getElementById("button-box"));
+	unhide(document.getElementById("result-display"));
+	var table="<table id='score-board' width='75vw'><tr><td>SCORE</td><td>NUMBER OF MOVES</td></tr><tr><td>"+score+"</td><td>"+moves+"</td>";
+	document.getElementById("result-display").innerHTML=table;
+	document.getElementById("result-display").innerHTML+="<button onClick='replay()'>REPLAY</button>";
+	document.getElementById("result-display").innerHTML+="<img src='cracker.jpg' id='result'style='width:20vw;float:right'>";
+	document.getElementById("result-display").innerHTML+="<img src='cracker1.jpg' id='result' style='width:20vw;float:left;position:absolute;top:70%'>";
+}
+function time_over()
+{
+	hide(document.getElementById("wrapper"));
+	hide(document.getElementById("timer-box"));
+	hide(document.getElementById("button-box"));
+	var content="<p id='game-over'> Game Over!!</p><button onClick='replay()' style:'clear:both'>TRY AGAIN</button>";
+	document.getElementById("result-display").innerHTML=content;
+	unhide(document.getElementById("result-display"));
+}
+	
+
 function validate()
 {
 	rows=document.getElementById("rows").value;
 	columns=document.getElementById("cols").value;
 	if((rows*columns)%2!=0)
 		alert("The total number of cells has to be even");
-	else if(rows>7 || columns>6)
-		alert("For better experience it is advisable to have maximum dimensions of 7*6");
-	else if(rows==7)
-		{
-		hide(document.getElementById("header"));
-		random_assign();
-		alert("Generating Table");
-		hide(document.getElementById("get-values"));
-		generate_board();
-		new_board();
-		timer_initialiser();
-		}
+	else if(rows>5 || columns>6)
+		alert("it is advisable to have maximum dimensions of 5*6");
 	else
 		{
-		random_assign();
-		alert("Generating Table");
 		hide(document.getElementById("get-values"));
+		unhide(document.getElementById("wrapper"));
+		unhide(document.getElementById("timer-box"));
+		unhide(document.getElementById("button-box"));
+		random_assign();
 		generate_board();
 		new_board();
 		timer_initialiser();
@@ -57,8 +72,10 @@ function validate()
 function getGrid()
 {	
 	hide(document.getElementById("wrapper"));
+	hide(document.getElementById("timer-box"));
+	hide(document.getElementById("button-box"));
 	unhide(document.getElementById("get-values"));
-	document.getElementById("get-values").innerHTML="<h1>Dimensions &nbsp Of  &nbsp Grid</h1>"
+	document.getElementById("get-values").innerHTML="<h1>Dimensions &nbsp Of  &nbsp Grid</h1><p align='center' style='color:white'>(for better experience use smaller grids)</p>"
 	document.getElementById("get-values").innerHTML+="<input type='text' placeholder='Rows' id='rows'>";
 	document.getElementById("get-values").innerHTML+="<input type='text' placeholder='Columns' id='cols'>";
 	document.getElementById("get-values").innerHTML+="<button onClick='validate()'>Submit</button>";
@@ -113,55 +130,108 @@ function timer_initialiser()
 {	
 	if(rows*columns/2==2)
 		{
-		sec_count=15;
+		sec_count=5;
 		min_count=0;
 		}
 	else if(rows*columns/2==3)
 		{
-		sec_count=30;
+		sec_count=10;
 		min_count=0;
 		}
 	else if(rows*columns/2==4)
 		{
-		sec_count=45;
+		sec_count=15;
 		min_count=0;
 		}
 	else if(rows*columns/2==5)
 		{
-		sec_count=0;
-		min_count=1;
+		sec_count=25;
+		min_count=0;
 		}
 	else if(rows*columns/2==6)
 		{
-		sec_count=15;
-		min_count=1;
+		sec_count=35;
+		min_count=0;
 		}
 	else if(rows*columns/2==7)
 		{
-		sec_count=30;
-		min_count=1;
+		sec_count=45;
+		min_count=0;
 		}
 	else if(rows*columns/2==8)
 		{
-		sec_count=45;
+		sec_count=0;
 		min_count=1;
 		}
 	else if(rows*columns/2==9)
 		{
-		sec_count=0;
-		min_count=2;
+		sec_count=15;
+		min_count=1;
 		}
-	else 
+	else if(rows*columns/2==10)
+		{
+		sec_count=30;
+		min_count=1;
+		}
+	else if(rows*columns/2==11)
+		{
+		sec_count=45;
+		min_count=1;
+		}
+	else if(rows*columns/2==12)
+		{
+		sec_count=55;
+		min_count=1;
+		}
+	else if(rows*columns/2==13)
 		{
 		sec_count=0;
 		min_count=2;
+		}
+	else if(rows*columns/2==14)
+		{
+		sec_count=10;
+		min_count=2;
+		}
+	else if(rows*columns/2==15)
+		{
+		sec_count=20;
+		min_count=2;
+		}
+	else if(rows*columns/2==16)
+		{
+		sec_count=30;
+		min_count=2;
+		}
+	else if(rows*columns/2==17)
+		{
+		sec_count=40;
+		min_count=2;
+		}
+	else if(rows*columns/2==18)
+		{
+		sec_count=50;
+		min_count=2;
+		}
+	else if(rows*columns/2==19)
+		{
+		sec_count=55;
+		min_count=2;
+		}
+	else
+		{
+		sec_count=0;
+		min_count=3;
 		}
 	document.getElementById("min").innerHTML=("0"+min_count).slice(-2);
 	document.getElementById("sec").innerHTML=("0"+sec_count).slice(-2);
 	main_timer();
 }
-function replay()
-{
+
+	function replay()
+{	
+	
+	hide(document.getElementById("result-display"));
 	score=0;
 	moves=0;
 	arr=[];
@@ -172,6 +242,7 @@ function replay()
 	pause_timer();
 	getGrid();
 }
+
 function main_timer()
 {
 	timerPause=0;	
@@ -184,8 +255,7 @@ function main_timer()
 	}
 	else if(min_count==0 && sec_count==0)
 	{
-		alert("Game Over... Score "+score+" number of moves"+moves);
-		replay();
+		time_over();
 	}
 	else 
 		sec_count--;
@@ -226,9 +296,9 @@ function memoryFlipTile(tile)
 							
 				// Check to see if the whole board is cleared
 					if(tiles_flipped == (rows*columns))
-					{
-						alert("Board cleared... Score"+score+" number of moves"+moves/2);
-						replay();
+					{	
+						pause_timer();
+						result_display();
 
 					}
 				}	 
@@ -251,21 +321,9 @@ function memoryFlipTile(tile)
 	}
 }
 		
-		
-
-function removeChar(possible,rand1)
-{
-	var pos=possible.indexOf(rand1);
-	var part1=possible.slice(0,pos);
-	var part2=possible.slice(pos+1,possible.length);
-	possible=part1.concat(part2);
-	return possible;
-		
-}
-
 function random_assign()
 {	
-	var possible="ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	var random_value=[];
 	while(arr.length < (rows*columns))
 	{
 		var randomnumber=Math.floor(Math.random()*(rows*columns))+1;
@@ -279,10 +337,21 @@ function random_assign()
 		if(!found)
 		arr[arr.length]=randomnumber;
 	}
-	for(var i=0;i<((rows*columns)/2);i++)
+	while(random_value.length < (rows*columns)/2)
+	{
+		var rand1=Math.floor(Math.random()*19)+1;
+		var found=false;
+		for(var i=0;i<random_value.length;i++)
 		{
-		var rand1=possible.charAt(Math.floor(Math.random()*possible.length));
-		possible=removeChar(possible,rand1);
-		memory_random[i]=rand1;
+			if(random_value[i]==rand1)
+			{found=true;
+			break;}
 		}
+		if(!found)
+		random_value[random_value.length]=rand1;
+	}
+	for(var i=0;i<random_value.length;i++)
+		memory_random[i]="<img src='image"+random_value[i]+".png'>";
+	
 }
+
